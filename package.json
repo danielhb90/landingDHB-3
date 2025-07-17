@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gh-pages": "gh-pages -d "
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/danielhb90/landingDHB-3/issues"
   },
-  "homepage": "https://github.com/danielhb90/landingDHB-3#readme"
+  "homepage": "https://github.com/danielhb90/landingDHB-3#readme",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
 }
