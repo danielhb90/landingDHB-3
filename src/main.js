@@ -1,5 +1,5 @@
 
-const API_URL_random = 'https://api.thedogapi.com/v1/images/search?limit=2&api_key=live_tMU3OaJc3maeoBa4oao50V3WAKlqFmiSqPu89546jJIC6I817aFEhlrvVO2SYSom';
+const API_URL_random = 'https://api.thedogapi.com/v1/images/search?limit=2';
 const API_URL_favorite = 'https://api.thedogapi.com/v1/favourites?limit=2';
 
 const spanError = document.getElementById('error');
@@ -11,7 +11,7 @@ async function loadRandomDogs() {
     console.log("RANDOM");
     console.log(data)
         
-    if (res.status === 200) {
+    if (res.status !== 200) {
         spanError.innerText = 'Hubo un error: ' + res.status +' '+ data.message;
     } else {
         const img1 = document.getElementById('img1');
@@ -23,9 +23,11 @@ async function loadRandomDogs() {
   
 }
 
-// async function loadFavoriteDogs() {
+ async function loadFavoriteDogs() {
 
-//     const res = await fetch(API_URL_favorite);
+    const res = await fetch(API_URL_favorite);
+    console.log(res.status)
+    spanError.innerHTML = 'Hubo un error: ' ;
 //     const data = await res.json();
 //     console.log("FAVORITES");
 //     console.log(data)
@@ -35,7 +37,7 @@ async function loadRandomDogs() {
 //         spanError.innerHTML = 'Hubo un error: ' ;
 //     }
 
-// }
+}
 
 // async function saveFavoriteDogs() {
 //     const res = await fetch(API_URL_favorite, {
@@ -61,4 +63,5 @@ async function loadRandomDogs() {
 
 
 loadRandomDogs();
+loadFavoriteDogs();
 
